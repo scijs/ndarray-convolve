@@ -19,7 +19,7 @@ require("ndarray-convolve")(lena, filter)
 
 This produces the following array:
 
-<img src="example/lena_lap.png">
+<img src="https://raw.github.com/mikolalysenko/ndarray-convolve/master/example/lena_lap.png">
 
 
 ## Install
