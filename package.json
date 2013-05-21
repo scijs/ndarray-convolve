@@ -1,0 +1,49 @@
+{
+  "name": "ndarray-convolve",
+  "version": "0.0.0",
+  "description": "Convolution and cross correlation functions for ndarrays",
+  "main": "convolve.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+    "bit-twiddle": "~0.0.2",
+    "cwise": "~0.1.2",
+    "ndarray": "~0.2.3",
+    "ndarray-complex": "~0.0.1",
+    "ndarray-fft": "~0.0.2",
+    "ndarray-ops": "~0.1.3",
+    "typedarray-pool": "~0.1.1"
+  },
+  "devDependencies": {
+    "lena": "~0.1.0",
+    "luminance": "~0.0.0",
+    "ndarray-pack": "~0.0.1",
+    "save-pixels": "~0.1.2",
+    "tape": "~1.0.2"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/ndarray-convolve.git"
+  },
+  "keywords": [
+    "ndarray",
+    "convolve",
+    "correlate",
+    "fft",
+    "image",
+    "processing",
+    "filter",
+    "cross",
+    "kernel",
+    "blur"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "2239a9f28642b67eeed361ec6b00691e45bdbb4c"
+}
