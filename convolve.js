@@ -46,12 +46,12 @@ function conv_impl(out_r, out_i, a_r, a_i, b_r, b_i, cor, wrap) {
   }
   
   var x_t = pool.mallocDouble(nsize)
-    , x = ndarray.ctor(x_t, nshape, nstride, 0)
+    , x = ndarray(x_t, nshape, nstride, 0)
   ops.assigns(x, 0)
   ops.assign(x.hi.apply(x, a_r.shape), a_r)
   
   var y_t = pool.mallocDouble(nsize)
-    , y = ndarray.ctor(y_t, nshape, nstride, 0)
+    , y = ndarray(y_t, nshape, nstride, 0)
   ops.assigns(y, 0)
   if(a_i) {
     ops.assign(y.hi.apply(y, a_i.shape), a_i)
@@ -61,12 +61,12 @@ function conv_impl(out_r, out_i, a_r, a_i, b_r, b_i, cor, wrap) {
   fft(1, x, y)
   
   var u_t = pool.mallocDouble(nsize)
-    , u = ndarray.ctor(u_t, nshape, nstride, 0)
+    , u = ndarray(u_t, nshape, nstride, 0)
   ops.assigns(u, 0)
   ops.assign(u.hi.apply(u, b_r.shape), b_r)
   
   var v_t = pool.mallocDouble(nsize)
-    , v = ndarray.ctor(v_t, nshape, nstride, 0)
+    , v = ndarray(v_t, nshape, nstride, 0)
   ops.assigns(v, 0)
   if(b_i) {
     ops.assign(v.hi.apply(y, b_i.shape), b_i)
