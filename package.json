@@ -8,20 +8,21 @@
     "test": "test"
   },
   "dependencies": {
-    "bit-twiddle": "~0.0.2",
-    "cwise": "~0.3.2",
-    "ndarray": "~1.0.0",
-    "ndarray-complex": "~1.0.0",
-    "ndarray-fft": "~0.1.0",
-    "ndarray-ops": "~1.1.0",
-    "typedarray-pool": "~0.1.1"
+    "bit-twiddle": "^1.0.2",
+    "cwise": "^1.0.4",
+    "ndarray": "^1.0.15",
+    "ndarray-complex": "^1.0.1",
+    "ndarray-fft": "^1.0.0",
+    "ndarray-ops": "^1.2.2",
+    "typedarray-pool": "^1.1.0"
   },
   "devDependencies": {
     "lena": "~1.0.0",
     "luminance": "~1.0.0",
     "ndarray-pack": "~1.0.1",
     "save-pixels": "~0.2.0",
-    "tape": "~1.0.4"
+    "tape": "~1.0.4",
+    "ndarray-imshow": "^1.0.0"
   },
   "scripts": {
     "test": "tap test/*.js"
@@ -45,5 +46,8 @@
   "author": "Mikola Lysenko",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "2239a9f28642b67eeed361ec6b00691e45bdbb4c"
+  "gitHead": "2239a9f28642b67eeed361ec6b00691e45bdbb4c",
+  "browserify": {
+    "transform": "cwise"
+  }
 }

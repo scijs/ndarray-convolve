@@ -12,5 +12,4 @@ function rescale(img) {
   return ops.mulseq(ops.addseq(img, lo), 255.0/(hi-lo))
 }
 
-require("save-pixels")(rescale(lena), "png").pipe(process.stdout)
-
+require('ndarray-imshow')(rescale(lena))

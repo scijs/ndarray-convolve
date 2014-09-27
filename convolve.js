@@ -1,15 +1,15 @@
-"use strict"
+'use strict'
 
-var bits = require("bit-twiddle")
-var ndarray = require("ndarray")
-var ops = require("ndarray-ops")
-var cops = require("ndarray-complex")
-var fft = require("ndarray-fft")
-var pool = require("typedarray-pool")
-var cwise = require("cwise")
+var bits = require('bit-twiddle')
+var ndarray = require('ndarray')
+var ops = require('ndarray-ops')
+var cops = require('ndarray-complex')
+var fft = require('ndarray-fft')
+var pool = require('typedarray-pool')
+var cwise = require('cwise')
 
 var conjmuleq = cwise({
-  args: ["array", "array", "array", "array"],
+  args: ['array', 'array', 'array', 'array'],
   body: function(out_r, out_i, a_r, a_i) {
     var a = a_r
     var b = a_i
@@ -23,7 +23,7 @@ var conjmuleq = cwise({
 
 function conv_impl(out_r, out_i, a_r, a_i, b_r, b_i, cor, wrap) {
   if(a_r.shape.length !== b_r.shape.length || out_r.shape.length !== a_r.shape.length) {
-    throw new Error("Dimension mismatch")
+    throw new Error('ndarray-convolve: Dimension mismatch')
   }
   var d = a_r.shape.length
     , nsize = 1
@@ -118,7 +118,7 @@ module.exports = function convolve(a, b, c, d, e, f) {
   } else if(arguments.length === 6) {
     conv_impl(a, b, c, d, e, f, false, false)
   } else {
-    throw new Error("Invalid arguments for convolve")
+    throw new Error('ndarray-convolve: Invalid arguments for convolve')
   }
   return a
 }
@@ -133,7 +133,7 @@ module.exports.wrap = function convolve_wrap(a, b, c, d, e, f) {
   } else if(arguments.length === 6) {
     conv_impl(a, b, c, d, e, f, false, true)
   } else {
-    throw new Error("Invalid arguments for convolve")
+    throw new Error('ndarray-convolve: Invalid arguments for convolve')
   }
   return a
 }
@@ -148,7 +148,7 @@ module.exports.correlate = function correlate(a, b, c, d, e, f) {
   } else if(arguments.length === 6) {
     conv_impl(a, b, c, d, e, f, true, false)
   } else {
-    throw new Error("Invalid arguments for correlate")
+    throw new Error('ndarray-convolve: Invalid arguments for correlate')
   }
   return a
 }
@@ -163,7 +163,7 @@ module.exports.correlate.wrap = function correlate_wrap(a, b, c, d, e, f) {
   } else if(arguments.length === 6) {
     conv_impl(a, b, c, d, e, f, true, true)
   } else {
-    throw new Error("Invalid arguments for correlate")
+    throw new Error('ndarray-convolve: Invalid arguments for correlate')
   }
   return a
 }
