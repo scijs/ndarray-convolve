@@ -1,6 +1,6 @@
 {
   "name": "ndarray-convolve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convolution and cross correlation functions for ndarrays",
   "main": "convolve.js",
   "directories": {
