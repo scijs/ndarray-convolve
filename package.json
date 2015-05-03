@@ -1,6 +1,6 @@
 {
   "name": "ndarray-convolve",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Convolution and cross correlation functions for ndarrays",
   "main": "convolve.js",
   "directories": {
@@ -17,12 +17,12 @@
     "typedarray-pool": "^1.1.0"
   },
   "devDependencies": {
-    "lena": "~1.0.0",
+    "baboon-image": "^1.0.0",
     "luminance": "~1.0.0",
+    "ndarray-imshow": "^1.0.0",
     "ndarray-pack": "~1.0.1",
     "save-pixels": "~0.2.0",
-    "tape": "~1.0.4",
-    "ndarray-imshow": "^1.0.0"
+    "tape": "~1.0.4"
   },
   "scripts": {
     "test": "tap test/*.js"

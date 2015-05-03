@@ -19,7 +19,7 @@ require("ndarray-convolve")(lena, filter)
 
 This produces the following array:
 
-<img src="https://raw.github.com/mikolalysenko/ndarray-convolve/master/example/lena_lap.png">
+<img src="https://raw.github.com/mikolalysenko/ndarray-convolve/master/example/baboon_lap.png">
 
 
 ## Install
@@ -33,7 +33,7 @@ var convolve = require("ndarray-convolve")
 ```
 
 ### `convolve( ... )`
-Performs a convolution between two images with zero boundary conditions.  There are four ways you can call this function:
+Performs a convolution between two images with zero boundary conditions. As long as it does not cause unnecessary cropping, the kernel (`b`) will be assumed to have its origin in the center of the kernel (for even kernels, slightly to the right of the center, for example `[1,2,3,4]` would be assumed to have it origin at 3). There are four ways you can call this function:
 
 #### `convolve(a, b)`
 Convolves `a` and `b` storing the result in `a`

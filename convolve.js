@@ -83,23 +83,34 @@ function conv_impl(out_r, out_i, a_r, a_i, b_r, b_i, cor, wrap) {
   fft(-1, x, y)
   
   var out_shape = new Array(d)
+    , out_offset = new Array(d)
     , need_zero_fill = false
   for(i=0; i<d; ++i) {
     if(out_r.shape[i] > nshape[i]) {
       need_zero_fill = true
     }
-    out_shape[i] = Math.min(out_r.shape[i], nshape[i])
+    if (wrap) {
+      out_offset[i] = 0
+    } else {
+      out_offset[i] = Math.max(0, Math.min(nshape[i]-out_r.shape[i], Math.floor(b_r.shape[i]/2)))
+    }
+    out_shape[i] = Math.min(out_r.shape[i], nshape[i]-out_offset[i])
   }
   
+  var cropped_x, cropped_y
   if(need_zero_fill) {
     ops.assign(out_r, 0.0)
   }
-  ops.assign(out_r.hi.apply(out_r, out_shape), x.hi.apply(x, out_shape))
+  cropped_x = x.lo.apply(x, out_offset)
+  cropped_x = cropped_x.hi.apply(cropped_x, out_shape)
+  ops.assign(out_r.hi.apply(out_r, out_shape), cropped_x)
   if(out_i) {
     if(need_zero_fill) {
       ops.assign(out_i, 0.0)
     }
-    ops.assign(out_i.hi.apply(out_i, out_shape), y.hi.apply(y, out_shape))
+    cropped_y = y.lo.apply(y, out_offset)
+    cropped_y = cropped_y.hi.apply(cropped_y, out_shape)
+    ops.assign(out_i.hi.apply(out_i, out_shape), cropped_y)
   }
 
   pool.freeDouble(x_t)

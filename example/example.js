@@ -1,9 +1,9 @@
-var lena = require("luminance")(require("lena"))
+var baboon = require("luminance")(require("baboon-image"))
 var filter = require("ndarray-pack")([[0, 1, 0],
                                       [1, -4, 1],
                                       [0, 1, 0]])
 
-require("../convolve.js")(lena, filter)
+require("../convolve.js")(baboon, filter)
 
 var ops = require("ndarray-ops")
 function rescale(img) {
@@ -12,4 +12,4 @@ function rescale(img) {
   return ops.mulseq(ops.addseq(img, lo), 255.0/(hi-lo))
 }
 
-require('ndarray-imshow')(rescale(lena))
+require('ndarray-imshow')(rescale(baboon), {gray: true})
